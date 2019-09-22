@@ -1,10 +1,20 @@
-{{% if user.is_authenticated %}}
-
-{{ user.username }}さん、こんにちは。
+ログインユーザー=@{{ user.username }}
 <a href="{% url 'logout' %}">ログアウト</a>
 
-{% else %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">投稿</button>
+</form>
+{% endblock content %}
 
-<p>ログインしていません</p>
 
-{% endif %}
+<p>-------------------</p>
+{% for post in posts %}
+    author@{{ post.author }}
+    {{ post.text }}
+    created at - {{ post.created_at }}
+    <p>-------------------</p>
+{% endfor %}
+
