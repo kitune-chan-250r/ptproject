@@ -108,7 +108,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+#TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
@@ -123,4 +124,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #login and logout page
-LOGIN_REDIRECT_URL = '/index'
+LOGIN_REDIRECT_URL = '/user/index'
