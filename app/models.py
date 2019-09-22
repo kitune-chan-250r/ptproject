@@ -31,5 +31,7 @@ class Prof(models.Model):
 #カテゴリ
 '''
 class Category(models.Model):
+	TYPE_CHOICES = (タプル)
+
 
 '''
