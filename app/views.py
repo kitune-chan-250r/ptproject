@@ -32,8 +32,8 @@ def post_create(request):
         form.save(commit=False)
         if form.is_valid():
             form.save()
-            posts = Post.objects.all()
-            return render(request, 'index.html', {'form':form, 'posts': posts})
+            posts = Post.objects.all()#投稿内容が問題ない場合に投稿をユーザーに紐づけしつつDBに保存
+            return render(request, 'index.html', {'form':form, 'posts': posts})#フォームの内容とリストビューに出すデータを渡す
         else:
             return HttpResponse('無効な値です')
     else:
