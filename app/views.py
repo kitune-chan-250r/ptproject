@@ -1,8 +1,8 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView, ListView
-from .forms import CustomUserCreationForm, PostForm
-from .models import Post, User
+from .forms import CustomUserCreationForm, PostForm, ProfForm
+from .models import Post, User, Prof
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
@@ -16,7 +16,7 @@ class SignUpView(CreateView):
 class SignUpCompView(TemplateView):
     template_name = 'registration/login.html'
 
-#[develop branch]-added
+
 class IndexView(TemplateView):
     template_name = 'index.html'
     form_class = PostForm
@@ -40,6 +40,35 @@ def post_create(request):
         form = PostForm()
         posts = Post.objects.all()
     return render(request, 'index.html', {'form':form, 'posts': posts})
+
+#ユーザーページ
+def user_detail(request):
+    user_id = request.GET.get('userid')
+    user_data = User.objects.get(username=user_id) #パラメーターからデータを検索しデータを受け渡す
+    try:
+        user_data_detail = Prof.objects.get(user=user_data.id)
+    except Prof.DoesNotExist:
+        user_data_detail = {}
+    
+    print(Prof.objects.all())
+
+    return render(request, 'prof.html', {'user_data':user_data, 'user_data_detail': user_data_detail})
+
+
+def user_prof_update(request):
+    if request.method == 'POST':
+        form = ProfForm(request.POST, request.FILES)
+        if not form.is_valid():
+            raise ValueError('invalid form')
+
+        Prof.objects.update_or_create(user=request.user,
+                                      defaults={'icon':form.cleaned_data['icon']})
+
+        return redirect('/user/detail/?userid={0}'.format(request.user.username))
+
+    elif request.method == 'GET':
+        return render(request, 'prof_update.html', {'form':ProfForm})
+
 
 #投稿の表示を別ページにする場合に渡すlistview
 '''
