@@ -13,8 +13,8 @@ class SignUpView(CreateView):
     success_url = reverse_lazy('complete') #登録成功時にリダイレクトする先
     template_name = 'create.html'
 
-class SignUpCompView(TemplateView):
-    template_name = 'registration/login.html'
+#class SignUpCompView(TemplateView):
+    #template_name = 'registration/login.html'
 
 
 class IndexView(TemplateView):
