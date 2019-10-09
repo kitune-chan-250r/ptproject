@@ -1,10 +1,10 @@
 from django.urls import path, include
-from .views import SignUpView,  post_create, user_detail, user_prof_update
+from .views import SignUpView,  post_create, user_detail, user_prof_update,SignUpCompView
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('new/', SignUpView.as_view()),
-    #path('complete/', SignUpCompView.as_view(), name='complete'),
+    path('new/', SignUpView.as_view(),name='new'),
+    path('complete/', SignUpCompView.as_view(), name='complete'),
     #[develop branch]-added
     path('index/', post_create, name='index'),#TimeLineAndPostView or post_create
     path('detail/', user_detail, name='detail'),#ユーザーページ
