@@ -58,15 +58,16 @@ def post_create(request):
 # ユーザーページ
 @login_required
 def user_detail(request):
-    username = request.GET.get('user_id')
-    print(username)
+    username = request.GET.get('userid')
     user_data = User.objects.get(username=username)  # パラメーターからデータを検索しデータを受け渡す
     try:
-        user_data_detail = User.objects.get(username=username)
+        user_data_detail = Prof.objects.get(user=user_data)
     except Prof.DoesNotExist:
+        print("dosenotexist")
         user_data_detail = {}
 
     print(Prof.objects.all())
+    print(user_data_detail.icon)
 
     return render(request, 'prof.html', {'user_data': user_data, 'user_data_detail': user_data_detail})
 

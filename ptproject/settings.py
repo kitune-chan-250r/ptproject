@@ -132,6 +132,8 @@ STATICFILES_DIRS = [
 
 #login and logout page
 LOGIN_REDIRECT_URL = '/user/home'
+LOGOUT_REDIRECT_URL = 'user/login/login/' #今書いてもらっているランディングページに変更する部分
+
 
 # media root setting
 MEDIA_URL = '/mdeia/'
