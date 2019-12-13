@@ -52,13 +52,15 @@ def post_create(request):
     else:
         form = PostForm()
         posts = Post.objects.all()
-    return render(request, 'index.html', {'form': form, 'posts': posts})
+    return render(request, 'home.html', {'form': form, 'posts': posts})
 
 
 # ユーザーページ
+@login_required
 def user_detail(request):
-    username = request.GET.get('username')
-    user_data = get_user_model()  # パラメーターからデータを検索しデータを受け渡す
+    username = request.GET.get('user_id')
+    print(username)
+    user_data = User.objects.get(username=username)  # パラメーターからデータを検索しデータを受け渡す
     try:
         user_data_detail = User.objects.get(username=username)
     except Prof.DoesNotExist:

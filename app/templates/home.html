@@ -223,7 +223,8 @@
                         <div data-s-93affe5f-95fb-416b-9b23-26fbf7aad6d9="" data-rid="53" class="sd">
                             <div data-s-8233205e-b75b-4c54-87e6-03ad1cde03d9="" data-rid="54" class="sd"><p
                                     data-s-e41b8a6a-9174-477c-af9b-5746a1c56240="" data-rid="55" class="sd text">
-                                HOME</p></div>
+                                HOME</p>
+                            </div>
                             <a href="#" data-s-296d297d-3882-4ab9-826f-615f40275e7e=""
                                data-rid="56" class="sd link"><p data-s-bba94a41-7015-40be-9ab6-29f0e890ae12=""
                                                                 data-rid="57" class="sd text">IT関連</p></a>
@@ -233,36 +234,49 @@
                                                   class="sd text">電化製品</p></a>
                             <div data-s-c1e98393-0f2c-434a-91e7-6d17b248e55e="" data-rid="60" class="sd">
                                 <a href="#" data-s-13c1395b-c80a-439c-82fb-11245cf22f4c=""
-                                   data-rid="61" class="sd text link">＋</a></div>
+                                   data-rid="61" class="sd text link">＋</a>
+                            </div>
                         </div>
-                        <div data-s-be3c0bcc-eb96-4811-8f94-20c0f265cd47="" data-rid="62" class="sd">
-                            <div data-s-5be02951-554f-4e02-84ca-7e4907c9797f="" data-rid="63" class="sd">
-                                <div data-s-30437531-8443-4b72-bc07-8ecaa365fd50="" data-rid="64" class="sd">
-                                    <div data-s-b09b5152-5d1e-45e3-b4c8-fd5dce2334a6="" data-rid="65" class="sd">
-                                        <a href="/live/ogO0nGKa23/1" data-s-462490ea-6545-4d2a-9d8e-79a7b741b505=""
-                                           data-rid="66" class="sd image link">
-                                            <style>
-                                            .sd[data-rid="66"]:before { background-image: url(https://storage.googleapis.com/production-os-assets/assets/2976b3cd-77a6-43b6-995b-718aa458a9b5) }
-
-
-
-                                            </style>
-                                        </a>
-                                        <div data-s-e4e7f616-9769-4463-bf5b-a462a4f55145="" data-rid="67" class="sd">
-                                            <a href="/live/ogO0nGKa23/1" data-s-c54dce56-63c2-40e3-970c-9dfcdb3d93c0=""
-                                               data-rid="68" class="sd text link">株式会社My Expo</a>
-                                            <p data-s-2a1d4b63-0ac0-45ba-ad5e-275e519a7dae="" data-rid="69"
-                                               class="sd text">皆様の期待に副うため株式会社My Expoでは全自動家事代行<br>２足歩行ロボットの開発をしました。ご興味のある方はご連絡下さい！！
-                                            </p></div>
+                        
+                                <div data-s-be3c0bcc-eb96-4811-8f94-20c0f265cd47="" data-rid="62" class="sd">
+                                <div data-s-5be02951-554f-4e02-84ca-7e4907c9797f="" data-rid="63" class="sd">
+                                {% for post in posts %}
+                                    
+                                    <div data-s-30437531-8443-4b72-bc07-8ecaa365fd50="" data-rid="64" class="sd">
+                                        <div data-s-b09b5152-5d1e-45e3-b4c8-fd5dce2334a6="" data-rid="65" class="sd">
+                                            <a href="/live/ogO0nGKa23/1" data-s-462490ea-6545-4d2a-9d8e-79a7b741b505=""
+                                               data-rid="66" class="sd image link">
+                                                <style>
+                                                .sd[data-rid="66"]:before { background-image: url(https://storage.googleapis.com/production-os-assets/assets/2976b3cd-77a6-43b6-995b-718aa458a9b5) }
+                                                </style>
+                                            </a>
+                                            <div data-s-e4e7f616-9769-4463-bf5b-a462a4f55145="" data-rid="67" class="sd">
+                                                <a data-s-c54dce56-63c2-40e3-970c-9dfcdb3d93c0=""
+                                                   data-rid="68" class="sd text link" href="{% url 'detail' %}?userid={{post.author}}">{{ post.author }}</a>
+                                                <p data-s-2a1d4b63-0ac0-45ba-ad5e-275e519a7dae="" data-rid="69"
+                                                   class="sd text">{{ post.text }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <img src="https://storage.googleapis.com/production-os-assets/assets/58686e77-8883-43d5-b8ac-1a9f75f2967a"
+                                             data-s-a93d1b23-719f-459f-93db-2920395c8359="" data-rid="70" class="sd">
+                                        <div data-s-2ad83151-9333-4671-a8b4-f963ae2097f0="" data-rid="71" class="sd"><i
+                                                data-s-3e79b168-8af4-4ca4-8c9f-7d2ee33b6fa9="" data-rid="72"
+                                                class="sd icon material-icons">favorite_border</i>
+                                            <p data-s-e194912a-91cd-47fc-b3b7-152da4e1b2ef="" data-rid="73" class="sd text">
+                                                609
+                                            </p>
+                                        </div>
                                     </div>
-                                    <img src="https://storage.googleapis.com/production-os-assets/assets/58686e77-8883-43d5-b8ac-1a9f75f2967a"
-                                         data-s-a93d1b23-719f-459f-93db-2920395c8359="" data-rid="70" class="sd">
-                                    <div data-s-2ad83151-9333-4671-a8b4-f963ae2097f0="" data-rid="71" class="sd"><i
-                                            data-s-3e79b168-8af4-4ca4-8c9f-7d2ee33b6fa9="" data-rid="72"
-                                            class="sd icon material-icons">favorite_border</i>
-                                        <p data-s-e194912a-91cd-47fc-b3b7-152da4e1b2ef="" data-rid="73" class="sd text">
-                                            609</p></div>
-                                </div>
+                                    <!-- 
+                                    author<a href="{% url 'detail' %}?userid={{post.author}}">@{{ post.author }} </a>
+                                    {{ post.text }}
+                                    created at - {{ post.created_at }}
+                                    -->
+                                {% endfor %}
+                                    </div>
+                                    </div>
+                                
                                 <div data-s-4839a024-0474-4c8a-9a41-696dfcc5893a="" data-rid="74" class="sd">
                                     <div data-s-9254fcb7-5aeb-4c26-90c0-8613f3ac9f28="" data-rid="75" class="sd"><p
                                             data-s-9322ed54-191f-4f0e-a06f-37acc916aec0="" data-rid="76"
@@ -275,65 +289,22 @@
                                                 data-s-ab706b63-b1a5-44be-b531-4ed4c02cbe1c="" data-rid="80"
                                                 class="sd icon material-icons">mail</i><i
                                                 data-s-b266b405-24ac-491e-a9dc-ff92f2d72cd5="" data-rid="81"
-                                                class="sd icon material-icons">star_border</i></div>
+                                                class="sd icon material-icons">star_border</i>
+                                        </div>
                                     </div>
                                     <div data-s-b1c6aa26-afce-4fb1-bbcc-0f68f1e548f7="" data-rid="82" class="sd">
                                         <div data-s-91acfc62-566a-41af-91b2-e5ae74222620="" data-rid="83"
                                              class="sd image">
                                             <style>
                                                 .sd[data-rid="83"]:before { background-image: url(https://images.unsplash.com/photo-1549948383-14a384fbc26f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjYzNDZ9) }
-
-
-
-
-
-
-
-
-
-
-
-
                                             </style>
                                         </div>
                                         <p data-s-0eb34aa3-c34b-434f-b283-1468e47b0782="" data-rid="84" class="sd text">
-                                            広告表示</p></div>
-                                </div>
-                            </div>
-                            <div data-s-41c63807-4b5c-4d91-8d39-561b6c57cf22="" data-rid="85" class="sd">
-                                <div data-s-03c49b19-6f7a-42fc-a3f9-76b9e3021e36="" data-rid="86" class="sd">
-                                    <div data-s-0b568410-7d03-4fc7-9b8a-5a19eae3e5b8="" data-rid="87" class="sd image">
-                                        <style>
-                                            .sd[data-rid="87"]:before { background-image: url(https://storage.googleapis.com/production-os-assets/assets/2976b3cd-77a6-43b6-995b-718aa458a9b5) }
-
-
-
-
-
-
-
-
-
-
-
-
-                                        </style>
-                                    </div>
-                                    <div data-s-f20cfd78-22ac-408a-92d1-e0b027466fb3="" data-rid="88" class="sd"><p
-                                            data-s-d25cf2d8-586c-4490-973b-7420a9098a9c="" data-rid="89"
-                                            class="sd text">株式会社My Expo</p>
-                                        <p data-s-14bdde51-8940-4823-bca7-3427134e4fab="" data-rid="90" class="sd text">
-                                            皆様の期待に副うため株式会社My Expoでは全自動家事代行<br>２足歩行ロボットの開発をしました。ご興味のある方はご連絡下さい！！</p>
+                                            広告表示</p>
                                     </div>
                                 </div>
-                                <img src="https://storage.googleapis.com/production-os-assets/assets/58686e77-8883-43d5-b8ac-1a9f75f2967a"
-                                     data-s-6b390fde-a555-4c51-b883-a6941110827b="" data-rid="91" class="sd">
-                                <div data-s-70869534-25c4-4792-8660-b118324a9806="" data-rid="92" class="sd"><i
-                                        data-s-134c798f-5ae2-47f1-9f51-b259a867e7a0="" data-rid="93"
-                                        class="sd icon material-icons">favorite_border</i>
-                                    <p data-s-583018a1-7a6b-414a-8dfb-7b626670c5e7="" data-rid="94" class="sd text">
-                                        609</p></div>
                             </div>
+                        
                         </div>
                     </div>
                     <div data-s-5b25fbfb-7627-49a1-b61f-05a26a13db8f="" data-rid="95" class="sd fixed">

@@ -131,7 +131,7 @@ STATICFILES_DIRS = [
 ]
 
 #login and logout page
-LOGIN_REDIRECT_URL = '/user/index'
+LOGIN_REDIRECT_URL = '/user/home'
 
 # media root setting
 MEDIA_URL = '/mdeia/'
