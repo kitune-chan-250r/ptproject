@@ -7,7 +7,7 @@ urlpatterns = [
     path('new/', SignUpView.as_view(),name='new'),
     path('complete/', SignUpCompView.as_view(), name='complete'),
     #[develop branch]-added
-    path('login/', include('django.contrib.auth.urls'), name='login'),#ログイン画面
+    path('', include('django.contrib.auth.urls'), name='login'),#ログイン画面
     path('home/',post_create,name='home'),#home画面
     path('detail/', user_detail, name='detail'),#ユーザーページ
     path('profupdt/', user_prof_update, name='profupdt')#プロフ更新ページ

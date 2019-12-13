@@ -318,7 +318,7 @@
                         </div>
                         <a href="/live/ogO0nGKa23/1" data-s-be710401-d630-4dc8-b355-ead0c1e14316="" data-rid="99"
                            class="sd link">
-                            <a href="#" data-s-462490ea-6545-4d2a-9d8e-79a7b741b505="" data-rid="66"
+                            <a href="{% url 'detail' %}?userid={{login_user.username}}" data-s-462490ea-6545-4d2a-9d8e-79a7b741b505="" data-rid="66"
                                class="sd image link"><img src='{{ login_user_prof.icon.url }}' width=70>
                                <!-- <style>
                                     sd[data-rid="66"]:before {background-color: #FFFFFFF; background-image: {{login_user_prof.icon.url}} }
