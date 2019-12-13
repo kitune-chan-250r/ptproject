@@ -52,7 +52,10 @@ def post_create(request):
     else:
         form = PostForm()
         posts = Post.objects.all()
-    return render(request, 'home.html', {'form': form, 'posts': posts})
+        login_user = User.objects.get(pk=request.user.id)
+        login_user_prof = Prof.objects.get(user=login_user)
+
+    return render(request, 'home.html', {'form': form, 'posts': posts, 'login_user': login_user, 'login_user_prof':login_user_prof})
 
 
 # ユーザーページ
