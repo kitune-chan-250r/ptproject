@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm
+# from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView, ListView
 from .forms import CustomUserCreationForm, PostForm, ProfForm
@@ -6,7 +6,14 @@ from .models import Post, User, Prof
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.views.generic.edit import ModelFormMixin
+from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404, render
+
+User = get_user_model()
+
+
+# from django.views.generic.edit import ModelFormMixin
 
 class SignUpView(CreateView):
     form_class = CustomUserCreationForm  # UserCreationForm
@@ -21,6 +28,10 @@ class SignUpCompView(TemplateView):
 class IndexView(TemplateView):
     template_name = 'index.html'
     form_class = PostForm
+
+
+class HomeView(TemplateView):
+    template_name = 'home.html'
 
 
 # [develop branch]-added
@@ -46,10 +57,10 @@ def post_create(request):
 
 # ユーザーページ
 def user_detail(request):
-    user_id = request.GET.get('userid')
-    user_data = User.objects.get(username=user_id)  # パラメーターからデータを検索しデータを受け渡す
+    username = request.GET.get('username')
+    user_data = get_user_model()  # パラメーターからデータを検索しデータを受け渡す
     try:
-        user_data_detail = Prof.objects.get(user=user_data.id)
+        user_data_detail = User.objects.get(username=username)
     except Prof.DoesNotExist:
         user_data_detail = {}
 
