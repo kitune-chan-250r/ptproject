@@ -239,72 +239,72 @@
                         </div>
                         
                                 <div data-s-be3c0bcc-eb96-4811-8f94-20c0f265cd47="" data-rid="62" class="sd">
-                                <div data-s-5be02951-554f-4e02-84ca-7e4907c9797f="" data-rid="63" class="sd">
-                                {% for post in posts %}
+                                    <div data-s-5be02951-554f-4e02-84ca-7e4907c9797f="" data-rid="63" class="sd" style="display:block">
+                                        {% for post in posts %}
+                                            
+                                            <div data-s-30437531-8443-4b72-bc07-8ecaa365fd50="" data-rid="64" class="sd">
+                                                <div data-s-b09b5152-5d1e-45e3-b4c8-fd5dce2334a6="" data-rid="65" class="sd">
+                                                    <a href="/live/ogO0nGKa23/1" data-s-462490ea-6545-4d2a-9d8e-79a7b741b505=""
+                                                       data-rid="66" class="sd image link">
+                                                        <style>
+                                                        .sd[data-rid="66"]:before { background-image: url(https://storage.googleapis.com/production-os-assets/assets/2976b3cd-77a6-43b6-995b-718aa458a9b5) }
+                                                        </style>
+                                                    </a>
+                                                    <div data-s-e4e7f616-9769-4463-bf5b-a462a4f55145="" data-rid="67" class="sd">
+                                                        <a data-s-c54dce56-63c2-40e3-970c-9dfcdb3d93c0=""
+                                                           data-rid="68" class="sd text link" href="{% url 'detail' %}?userid={{post.author}}">{{ post.author }}</a>
+                                                        <p data-s-2a1d4b63-0ac0-45ba-ad5e-275e519a7dae="" data-rid="69"
+                                                           class="sd text">{{ post.text }}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <img src="https://storage.googleapis.com/production-os-assets/assets/58686e77-8883-43d5-b8ac-1a9f75f2967a"
+                                                     data-s-a93d1b23-719f-459f-93db-2920395c8359="" data-rid="70" class="sd">
+                                                <div data-s-2ad83151-9333-4671-a8b4-f963ae2097f0="" data-rid="71" class="sd"><i
+                                                        data-s-3e79b168-8af4-4ca4-8c9f-7d2ee33b6fa9="" data-rid="72"
+                                                        class="sd icon material-icons">favorite_border</i>
+                                                    <p data-s-e194912a-91cd-47fc-b3b7-152da4e1b2ef="" data-rid="73" class="sd text">
+                                                        609
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <!-- 
+                                            author<a href="{% url 'detail' %}?userid={{post.author}}">@{{ post.author }} </a>
+                                            {{ post.text }}
+                                            created at - {{ post.created_at }}
+                                            -->
+                                        {% endfor %}
+                                    </div>
                                     
-                                    <div data-s-30437531-8443-4b72-bc07-8ecaa365fd50="" data-rid="64" class="sd">
-                                        <div data-s-b09b5152-5d1e-45e3-b4c8-fd5dce2334a6="" data-rid="65" class="sd">
-                                            <a href="/live/ogO0nGKa23/1" data-s-462490ea-6545-4d2a-9d8e-79a7b741b505=""
-                                               data-rid="66" class="sd image link">
-                                                <style>
-                                                .sd[data-rid="66"]:before { background-image: url(https://storage.googleapis.com/production-os-assets/assets/2976b3cd-77a6-43b6-995b-718aa458a9b5) }
-                                                </style>
-                                            </a>
-                                            <div data-s-e4e7f616-9769-4463-bf5b-a462a4f55145="" data-rid="67" class="sd">
-                                                <a data-s-c54dce56-63c2-40e3-970c-9dfcdb3d93c0=""
-                                                   data-rid="68" class="sd text link" href="{% url 'detail' %}?userid={{post.author}}">{{ post.author }}</a>
-                                                <p data-s-2a1d4b63-0ac0-45ba-ad5e-275e519a7dae="" data-rid="69"
-                                                   class="sd text">{{ post.text }}
-                                                </p>
+                                
+                                    <div data-s-4839a024-0474-4c8a-9a41-696dfcc5893a="" data-rid="74" class="sd">
+                                        <div data-s-9254fcb7-5aeb-4c26-90c0-8613f3ac9f28="" data-rid="75" class="sd"><p
+                                                data-s-9322ed54-191f-4f0e-a06f-37acc916aec0="" data-rid="76"
+                                                class="sd text">{{ login_user.username }}</p>
+                                            <p data-s-d25c21a3-0a52-42cf-848e-34e67bd5dc26="" data-rid="77" class="sd text">
+                                                フォロー23　　フォロワー８</p>
+                                            <div data-s-b2b549e9-55e3-4f40-be2c-45d53d4b272f="" data-rid="78" class="sd"><i
+                                                    data-s-56a0eb85-2eb6-4520-b2a3-eda09de2b672="" data-rid="79"
+                                                    class="sd icon material-icons">date_range</i><i
+                                                    data-s-ab706b63-b1a5-44be-b531-4ed4c02cbe1c="" data-rid="80"
+                                                    class="sd icon material-icons">mail</i><i
+                                                    data-s-b266b405-24ac-491e-a9dc-ff92f2d72cd5="" data-rid="81"
+                                                    class="sd icon material-icons">star_border</i>
                                             </div>
                                         </div>
-                                        <img src="https://storage.googleapis.com/production-os-assets/assets/58686e77-8883-43d5-b8ac-1a9f75f2967a"
-                                             data-s-a93d1b23-719f-459f-93db-2920395c8359="" data-rid="70" class="sd">
-                                        <div data-s-2ad83151-9333-4671-a8b4-f963ae2097f0="" data-rid="71" class="sd"><i
-                                                data-s-3e79b168-8af4-4ca4-8c9f-7d2ee33b6fa9="" data-rid="72"
-                                                class="sd icon material-icons">favorite_border</i>
-                                            <p data-s-e194912a-91cd-47fc-b3b7-152da4e1b2ef="" data-rid="73" class="sd text">
-                                                609
-                                            </p>
+                                        <div data-s-b1c6aa26-afce-4fb1-bbcc-0f68f1e548f7="" data-rid="82" class="sd">
+                                            <div data-s-91acfc62-566a-41af-91b2-e5ae74222620="" data-rid="83"
+                                                 class="sd image">
+                                                <style>
+                                                    .sd[data-rid="83"]:before { background-image: url(https://images.unsplash.com/photo-1549948383-14a384fbc26f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjYzNDZ9) }
+                                                </style>
+                                            </div>
+                                            <p data-s-0eb34aa3-c34b-434f-b283-1468e47b0782="" data-rid="84" class="sd text">
+                                                広告表示</p>
                                         </div>
-                                    </div>
-                                    <!-- 
-                                    author<a href="{% url 'detail' %}?userid={{post.author}}">@{{ post.author }} </a>
-                                    {{ post.text }}
-                                    created at - {{ post.created_at }}
-                                    -->
-                                {% endfor %}
-                                    </div>
-                                    </div>
-                                
-                                <div data-s-4839a024-0474-4c8a-9a41-696dfcc5893a="" data-rid="74" class="sd">
-                                    <div data-s-9254fcb7-5aeb-4c26-90c0-8613f3ac9f28="" data-rid="75" class="sd"><p
-                                            data-s-9322ed54-191f-4f0e-a06f-37acc916aec0="" data-rid="76"
-                                            class="sd text">株式会社My Expo</p>
-                                        <p data-s-d25c21a3-0a52-42cf-848e-34e67bd5dc26="" data-rid="77" class="sd text">
-                                            フォロー23　　フォロワー８</p>
-                                        <div data-s-b2b549e9-55e3-4f40-be2c-45d53d4b272f="" data-rid="78" class="sd"><i
-                                                data-s-56a0eb85-2eb6-4520-b2a3-eda09de2b672="" data-rid="79"
-                                                class="sd icon material-icons">date_range</i><i
-                                                data-s-ab706b63-b1a5-44be-b531-4ed4c02cbe1c="" data-rid="80"
-                                                class="sd icon material-icons">mail</i><i
-                                                data-s-b266b405-24ac-491e-a9dc-ff92f2d72cd5="" data-rid="81"
-                                                class="sd icon material-icons">star_border</i>
-                                        </div>
-                                    </div>
-                                    <div data-s-b1c6aa26-afce-4fb1-bbcc-0f68f1e548f7="" data-rid="82" class="sd">
-                                        <div data-s-91acfc62-566a-41af-91b2-e5ae74222620="" data-rid="83"
-                                             class="sd image">
-                                            <style>
-                                                .sd[data-rid="83"]:before { background-image: url(https://images.unsplash.com/photo-1549948383-14a384fbc26f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjYzNDZ9) }
-                                            </style>
-                                        </div>
-                                        <p data-s-0eb34aa3-c34b-434f-b283-1468e47b0782="" data-rid="84" class="sd text">
-                                            広告表示</p>
                                     </div>
                                 </div>
                             </div>
-                        
                         </div>
                     </div>
                     <div data-s-5b25fbfb-7627-49a1-b61f-05a26a13db8f="" data-rid="95" class="sd fixed">
