@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm
+# from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView, ListView
 from .forms import CustomUserCreationForm, PostForm, ProfForm
@@ -6,7 +6,14 @@ from .models import Post, User, Prof
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.views.generic.edit import ModelFormMixin
+from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404, render
+
+User = get_user_model()
+
+
+# from django.views.generic.edit import ModelFormMixin
 
 class SignUpView(CreateView):
     form_class = CustomUserCreationForm  # UserCreationForm
@@ -21,6 +28,10 @@ class SignUpCompView(TemplateView):
 class IndexView(TemplateView):
     template_name = 'index.html'
     form_class = PostForm
+
+
+class HomeView(TemplateView):
+    template_name = 'home.html'
 
 
 # [develop branch]-added
@@ -41,19 +52,25 @@ def post_create(request):
     else:
         form = PostForm()
         posts = Post.objects.all()
-    return render(request, 'index.html', {'form': form, 'posts': posts})
+        login_user = User.objects.get(pk=request.user.id)
+        login_user_prof = Prof.objects.get(user=login_user)
+
+    return render(request, 'home.html', {'form': form, 'posts': posts, 'login_user': login_user, 'login_user_prof':login_user_prof})
 
 
 # ユーザーページ
+@login_required
 def user_detail(request):
-    user_id = request.GET.get('userid')
-    user_data = User.objects.get(username=user_id)  # パラメーターからデータを検索しデータを受け渡す
+    username = request.GET.get('userid')
+    user_data = User.objects.get(username=username)  # パラメーターからデータを検索しデータを受け渡す
     try:
-        user_data_detail = Prof.objects.get(user=user_data.id)
+        user_data_detail = Prof.objects.get(user=user_data)
     except Prof.DoesNotExist:
+        print("dosenotexist")
         user_data_detail = {}
 
     print(Prof.objects.all())
+    print(user_data_detail.icon)
 
     return render(request, 'prof.html', {'user_data': user_data, 'user_data_detail': user_data_detail})
 
