@@ -18,9 +18,32 @@ class User(AbstractUser):
 
 #投稿
 class Post(models.Model):
+    CAT_CHOICES = (('','金融'),
+                   ('',''),
+                   ('',''),
+                   ('',''),
+                   ('',''),
+                   ('',''),
+                   ('',''),
+                   ('',''),
+                   ('',''),
+                   ('',''),
+                   ('',''),
+                   ('',''),
+                   ('',''),
+                   ('',''),
+                   ('',''),)
+
     author = models.ForeignKey(User, on_delete=models.CASCADE, editable=False)
     created_at = models.DateTimeField(auto_now=True)
+    title = models.TextField(max_length=100)
     text = models.TextField(max_length=1000)
+    category = models.CharField(choices=CAT_CHOICES,max_length=100,default='general')
+    product_img = models.ImageField(
+        upload_to='img',
+        verbose_name='product',
+        blank=False,
+    )
     #fav = models.ForeignKey(??, on_delete=models.CASCADE) #ふぁぼ機能、実装予定
     #category = models.ForeignKey(User, on_delete=models.CASCADE)
 

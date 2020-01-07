@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <title>My Expo1</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap-2.css' %}">
     <link rel="stylesheet" href="{% static 'css/mypage.css' %}">
     <link rel="stylesheet" href="{% static 'css/home.css' %}" >
-    <script type="text/javascript" src="{% static https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js %}"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="{% static 'js/bootstrap.js' %}"></script>
   </head>
 
@@ -23,7 +23,8 @@
          <a class="navbar-brand" href="home.html">My Expo</a>
        </div>
        <div class="collapse navbar-collapse" id="navigation">
-         <a class="navbar-text navbar-right" href="mypage.html">ユーザーicon</a>
+         <a class="navbar-text navbar-right" href="{% url 'detail' %}?userid={{login_user.username}}">Mypage</a>
+         <a class="navbar-text navbar-right" href="{% url 'detail' %}?userid={{login_user.username}}">Login user / {{login_user.username}}</a>
        </div>
      </div>
    </nav>
@@ -38,21 +39,23 @@
 　<div class="wrpper">
   　<div class="tab-content">
     　<div class="tab-pane active" id="tab1">
+      {% for post in posts %}
        <div class="contents-1">
          <div class="item__header clearfix">
           <span class="item__user-icon">
            <img src="imgs/.jpg" height="50" width="50" alt="" class="item__user-icon-img" />
            </span>
-          <span class="item__user-name">
-           <strong>株式会社My Expo</strong>
+          <span class="item__user-name" href="{% url 'detail' %}?userid={{post.author}}">
+           <strong>{{ post.author }}</strong>
           </span>
          <span class="item__date">
-          2019/10/15 16:00
+          {{ post.created_at }}
          </span>
-         <div class="coment">aaaaaaaaaaaa</div>
+         <div class="coment">{{ post.text }}</div>
          <div><img src="imags/スクリーンショット.png" class="gazou"></div>
         </div>
        </div>
+       {% endfor %}
     　</div>
     　<div class="tab-pane" id="tab2">Content２</div>
     　<div class="tab-pane" id="tab3">Content３</div>
