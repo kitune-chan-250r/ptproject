@@ -10,6 +10,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render
 
+
 User = get_user_model()
 
 
@@ -39,28 +40,41 @@ class HomeView(TemplateView):
 @login_required
 def post_create(request):
     if request.method == 'POST':
-        author = Post(author=User.objects.get(pk=request.user.id))
-        # author = User.objects.get(pk=request.user.id)
-        form = PostForm(request.POST or None, instance=author)
-        form.save(commit=False)
-        if form.is_valid():
-            form.save()
-            posts = Post.objects.all()  # 投稿内容が問題ない場合に投稿をユーザーに紐づけしつつDBに保存
-            return render(request, 'index.html', {'form': form, 'posts': posts})  # フォームの内容とリストビューに出すデータを渡す
-        else:
-            return HttpResponse('無効な値です')
+        pass
     else:
         form = PostForm()
         posts = Post.objects.all()
         login_user = User.objects.get(pk=request.user.id)
-        login_user_prof = Prof.objects.get(user=login_user)
+        try:
+            login_user_prof = Prof.objects.get(user=login_user)
+        except Prof.DoesNotExist:
+            print("dosenotexist")
+            login_user_prof = {}
 
-    return render(request, 'home.html', {'form': form, 'posts': posts, 'login_user': login_user, 'login_user_prof':login_user_prof})
+    return render(request, 'home.html', {'posts': posts, 'login_user': login_user, 'login_user_prof':login_user_prof})
 
 
 # ユーザーページ
 @login_required
 def user_detail(request):
+    if request.method == 'POST':
+        author = Post(author=User.objects.get(pk=request.user.id))
+        # author = User.objects.get(pk=request.user.id)
+        form = PostForm(request.POST or None, instance=author)
+        if form.is_valid():
+            #form.save()
+            post = Post()  # 投稿内容が問題ない場合に投稿をユーザーに紐づけしつつDBに保存
+            post.author = author
+            post.product_img = request.FILES['product_img']
+            post.category = request.POST['category']
+            post.text = request.POST['text']
+
+            post.save()
+
+            return redirect("app:home") # フォームの内容とリストビューに出すデータを渡す
+        else:
+            return HttpResponse('無効な値です')
+
     username = request.GET.get('userid')
     user_data = User.objects.get(username=username)  # パラメーターからデータを検索しデータを受け渡す
     try:
@@ -69,10 +83,8 @@ def user_detail(request):
         print("dosenotexist")
         user_data_detail = {}
 
-    print(Prof.objects.all())
-    print(user_data_detail.icon)
 
-    return render(request, 'prof.html', {'user_data': user_data, 'user_data_detail': user_data_detail})
+    return render(request, 'prof.html', {'user_data': user_data, 'user_data_detail': user_data_detail, 'form': PostForm})
 
 
 def user_prof_update(request):
@@ -96,5 +108,18 @@ def user_prof_update(request):
 def listView(request):
     posts = Post.object.all()
     return render(request, index.html, {'posts': posts})
+            """
+         author = Post(author=User.objects.get(pk=request.user.id))
+            # author = User.objects.get(pk=request.user.id)
+            form = PostForm(request.POST or None, instance=author)
+            form.save(commit=False)
+            if form.is_valid():
+                form.save()
+                posts = Post.objects.all()  # 投稿内容が問題ない場合に投稿をユーザーに紐づけしつつDBに保存
+                return render(request, 'home.html', {'form': form, 'posts': posts})  # フォームの内容とリストビューに出すデータを渡す
+            else:
+                return HttpResponse('無効な値です')
+
+        """
 
 '''

@@ -18,7 +18,7 @@ class CustomUserCreationForm(UserCreationForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('text',)
+        fields = ('text', 'category', 'product_img')
 
 
 class ProfForm(forms.ModelForm):

@@ -21,5 +21,15 @@
     <p> detail text </p>
     {{ user_data.acctext }}
 
+
+    <a href=""><h1>Create post</h1></a>
+    <form action="{% url 'detail' %}" method="POST" enctype="multipart/form-data">      
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="投稿" />
+    </form>
+</form>
+
+
 </body>
 </html>

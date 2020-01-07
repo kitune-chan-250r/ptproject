@@ -18,25 +18,24 @@ class User(AbstractUser):
 
 #投稿
 class Post(models.Model):
-    CAT_CHOICES = (('','金融'),
-                   ('',''),
-                   ('',''),
-                   ('',''),
-                   ('',''),
-                   ('',''),
-                   ('',''),
-                   ('',''),
-                   ('',''),
-                   ('',''),
-                   ('',''),
-                   ('',''),
-                   ('',''),
-                   ('',''),
-                   ('',''),)
+    CAT_CHOICES = (('finace','金融'),
+                   ('it_cat','IT'),
+                   ('media','メディア'),
+                   ('machine','自動車・機械'),
+                   ('retail','小売'),
+                   ('service','サービス'),
+                   ('arc','建築・不動産'),
+                   ('energy','エネルギー・資源'),
+                   ('preci','電気・精密'),
+                   ('life','生活関連'),
+                   ('fanda','飲食'),
+                   ('logi','物流'),
+                   ('food','食品'),
+                   ('cloth','衣料'),
+                   ('enta','娯楽'),)
 
     author = models.ForeignKey(User, on_delete=models.CASCADE, editable=False)
     created_at = models.DateTimeField(auto_now=True)
-    title = models.TextField(max_length=100)
     text = models.TextField(max_length=1000)
     category = models.CharField(choices=CAT_CHOICES,max_length=100,default='general')
     product_img = models.ImageField(
