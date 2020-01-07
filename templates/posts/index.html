@@ -12,8 +12,11 @@
     <div class="col-10 offset-1">
       <div class="card">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><a href="{% url 'accounts:userDetail' post.author%}" class="text-dark"><img src="{{ post.author.icon.url }}"
-                class="timeline-icon" style="height:3%">
+          <li class="list-group-item"><a href="{% url 'accounts:userDetail' post.author%}" class="text-dark">
+
+<!---
+            <img src="{{ post.author.icon.url }}"
+                class="timeline-icon" style="height:3%"> -->
               {{post.author.username }}
             </a>
           </li>

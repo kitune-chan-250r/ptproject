@@ -21,5 +21,58 @@
             <!-- 追加ここまで -->
         </div>
     </div>
+    {% for post in post_list %}
+  <div class="row p-3 text-lefti">
+    <div class="col-10 offset-1">
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><a href="{% url 'accounts:userDetail' post.author%}" class="text-dark">
+
+<!---
+            <img src="{{ post.author.icon.url }}"
+                class="timeline-icon" style="height:3%"> -->
+              {{post.author.username }}
+            </a>
+          </li>
+        </ul>
+        <img src="{{post.picture.url}}" class="card-img" />
+        <div class="card-body">
+          <div class="like_list_{{post.id}}">
+            <!-- ここにお気に入り機能を実装していく -->
+            {{ post|is_like:user }}
+            {{ like_list|get_likes:post.id }}
+            <!-- ここから新規追加 -->
+            </br>
+            {{ comment_list|get_comment_list:post.id }}
+            <!-- 新規追加ここまで -->
+
+          </div>
+          <div class="card-hedder">
+
+            <div><span class="mr-2">@{{ post.author.username }}</span>{{ post.text }}</div>
+
+          </div>
+          <div class="pt-2">
+            <small>
+              投稿時間{{ post.created_at|date:'Y-m-d H:i' }}
+            </small>
+          </div>
+
+        </div>
+        <!-- ここから新規追加 -->
+        <div class="card-footer">
+          コメント投稿
+          <form class="comment" id="{{post.id}}">
+            {% csrf_token %}
+            <input class="form-control col-12" name="comment" type="text" class="comment">
+
+          </form>
+        </div>
+        <!-- 新規追加ここまで -->
+
+      </div>
+    </div>
+  </div>
+  {% endfor %}
 </div>
 {% endblock %}

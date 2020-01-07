@@ -7,6 +7,9 @@ from django.contrib.auth import login
 
 from .forms import SignUpForm
 from .models import User
+from posts.models import Post
+
+import re
 
 
 # サインアップ画面
@@ -42,9 +45,24 @@ class AccountDetailView(DetailView):
 
     # 以下関数を新規追加 テンプレートにわたすデータにログイン中ユーザーの情報も追加する
     def get_context_data(self, **kwargs):
+        images = []
         context = super().get_context_data()
         context['login_user'] = self.request.user
+        
+        path = self.request.path
+        path = path.replace('accounts/', '')
+        dis = path.replace('/', '')
+
+        user_obj = User.objects.get(username=dis)
+
+        posts = Post.objects.all()
+        for x in posts:
+            if x.author == user_obj:
+                images.append(x)
+        context['images'] = images
+
         return context
+
 
 # 以下のコードを追加
 class IconEdit(UpdateView):
@@ -61,3 +79,4 @@ class IconEdit(UpdateView):
         return reverse(
             'accounts:userDetail',
             kwargs={'username': self.request.user.username})
+
