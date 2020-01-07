@@ -50,3 +50,7 @@ section{
 .category-box{
   display: flex;
 }
+
+.container.product_images{
+  display: flex;
+}
