@@ -5,7 +5,7 @@ import sys
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ptproject.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'techpitgram.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
