@@ -1,0 +1,22 @@
+.container {
+  max-width: 960px;
+}
+.my-form {
+        width: 640px;
+        margin: 0 auto;
+      }
+
+      @media screen and (max-width: 768px) {
+        .my-form {
+          width: 100%;
+        }
+      }
+
+      .errorlist li {
+        list-style-type: none;
+      }
+
+      .errorlist {
+        color: red;
+        margin-left: 0;
+        padding-left: 0;
